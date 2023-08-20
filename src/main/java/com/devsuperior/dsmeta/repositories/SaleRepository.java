@@ -30,21 +30,21 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
     List<SaleSummaryMinDTO> summarySaleForJpql(LocalDate minDate, LocalDate maxDate);
 
     @Query(nativeQuery = true, value = "SELECT tb_sales.id, tb_sales.date, tb_sales.amount, tb_seller.name "
-            +"FROM tb_sales "
-            +"INNER JOIN tb_seller ON tb_sales.seller_id = tb_seller.id "
-            +"WHERE tb_sales.date BETWEEN :minDate AND :maxDate "
-            +"AND UPPER (tb_seller.name) LIKE UPPER(CONCAT('%', :name, '%')) ",
+            + "FROM tb_sales "
+            + "INNER JOIN tb_seller ON tb_sales.seller_id = tb_seller.id "
+            + "WHERE tb_sales.date BETWEEN :minDate AND :maxDate "
+            + "AND UPPER (tb_seller.name) LIKE UPPER(CONCAT('%', :name, '%')) ",
             countQuery = "SELECT COUNT(tb_sales.id) "
                     + "FROM tb_sales "
                     + "INNER JOIN tb_seller ON tb_sales.seller_id = tb_seller.id "
                     + "WHERE tb_sales.date BETWEEN :minDate AND :maxDate "
-                    + "AND UPPER (tb_seller.name) LIKE UPPER(CONCAT('%', :name, '%'))" )
+                    + "AND UPPER (tb_seller.name) LIKE UPPER(CONCAT('%', :name, '%'))")
     Page<ReportMinProjection> reportSaleForSql(LocalDate minDate, LocalDate maxDate, String name, Pageable pageable);
 
     @Query("SELECT new com.devsuperior.dsmeta.dto.SaleReportMinDTO(obj.id, obj.date, obj.amount, obj.seller.name) "
             + "FROM Sale obj "
             + "WHERE obj.date BETWEEN :minDate AND :maxDate "
-            + "AND (:name = '' OR LOWER(obj.seller.name) LIKE LOWER(CONCAT('%',:name,'%'))) ")
+            + "AND (:name = '' OR LOWER(obj.seller.name) LIKE LOWER(CONCAT('%', :name, '%'))) ")
     Page<SaleReportMinDTO> reportSaleForJpql(LocalDate minDate, LocalDate maxDate, String name, Pageable pageable);
 
 }

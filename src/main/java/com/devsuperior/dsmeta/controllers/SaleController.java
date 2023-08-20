@@ -42,7 +42,7 @@ public class SaleController {
     }
 
     @GetMapping(value = "/report")
-    public ResponseEntity<Page<SaleReportMinDTO>> getReportSql(
+    public ResponseEntity<Page<SaleReportMinDTO>> getReportForSql(
             @RequestParam(name = "minDate", defaultValue = "") String minDate,
             @RequestParam(name = "maxDate", defaultValue = "") String maxDate,
             @RequestParam(name = "name", defaultValue = "") String name,
@@ -53,7 +53,7 @@ public class SaleController {
     }
 
     @GetMapping(value = "/report/jpql")
-    public ResponseEntity<Page<SaleReportMinDTO>> getReportJpql(
+    public ResponseEntity<Page<SaleReportMinDTO>> getReportForJpql(
             @RequestParam(name = "minDate", defaultValue = "") String minDate,
             @RequestParam(name = "maxDate", defaultValue = "") String maxDate,
             @RequestParam(name = "name", defaultValue = "") String name,
