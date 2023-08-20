@@ -2,20 +2,20 @@ package com.devsuperior.dsmeta.dto;
 
 import com.devsuperior.dsmeta.projections.SummaryMinProjection;
 
-public class SummaryDTO {
+public class SaleSummaryMinDTO {
 
     private String sellerName;
     private Double total;
 
-    public SummaryDTO() {
+    public SaleSummaryMinDTO() {
     }
 
-    public SummaryDTO(String sellerName, Double total) {
+    public SaleSummaryMinDTO(String sellerName, Double total) {
         this.sellerName = sellerName;
         this.total = total;
     }
 
-    public SummaryDTO(SummaryMinProjection projection) {
+    public SaleSummaryMinDTO(SummaryMinProjection projection) {
         this.sellerName = projection.getName();
         this.total = projection.getTotal();
     }
