@@ -41,19 +41,19 @@ Trata-se de um sistema de vendas (Sale) e vendedores (Seller). Cada venda está 
 
 ### 2 - Sumário de vendas por vendedor
 
-* ```GET``` /sales/summary
+* ```GET``` - /sales/summary
 
 ##
 
 ### 3 - Relatório de vendas
 
-* ```GET``` /sales/report
+* ```GET``` - /sales/report
 
 ##
 
 ### 4 - Relatório de vendas
 
-* ```GET``` /sales/report?minDate=2022-05-01&maxDate=2022-05-31&name=odinson
+* ```GET``` - /sales/report?minDate=2022-05-01&maxDate=2022-05-31&name=odinson
 
 ```
 {
